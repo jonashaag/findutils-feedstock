@@ -1,8 +1,8 @@
 #!/bin/bash
 
 autoreconf -fiv
-./configure --prefix="$PREFIX"
-make -j${CPU_COUNT} --disable-dependency-tracking
+./configure --prefix="$PREFIX" --disable-dependency-tracking
+make -j${CPU_COUNT}
 
 #Disabling ahistorical strftime tests
 sed -i.bak -e '120,126 s@.*/\* ! \*/@@' tests/test-strftime.c
@@ -21,7 +21,7 @@ sed -i.bak -e 's@mktemp -d@mktemp -d \${TMPDIR:-/tmp}/tmp.XXXXXXXXXX@' find/test
 sed -i.bak -e 's@mktemp@mktemp \${TMPDIR:-/tmp}/tmp.XXXXXXXXXX@' find/testsuite/test_escapechars.sh
 sed -i.bak -e 's@mktemp@mktemp \${TMPDIR:-/tmp}/tmp.XXXXXXXXXX@' find/testsuite/test_inode.sh
 
-make check -j${CPU_COUNT}
+#make check -j${CPU_COUNT}
 make install
 
 
