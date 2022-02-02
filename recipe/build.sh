@@ -2,7 +2,7 @@
 
 autoreconf -fiv
 ./configure --prefix="$PREFIX"
-make -j${CPU_COUNT}
+make -j${CPU_COUNT} --disable-dependency-tracking
 
 #Disabling ahistorical strftime tests
 sed -i.bak -e '120,126 s@.*/\* ! \*/@@' tests/test-strftime.c
