@@ -20,7 +20,7 @@ sed -i.bak -e 's@mktemp -d@mktemp -d \${TMPDIR:-/tmp}/tmp.XXXXXXXXXX@' find/test
 sed -i.bak -e 's@mktemp@mktemp \${TMPDIR:-/tmp}/tmp.XXXXXXXXXX@' find/testsuite/test_escapechars.sh
 sed -i.bak -e 's@mktemp@mktemp \${TMPDIR:-/tmp}/tmp.XXXXXXXXXX@' find/testsuite/test_inode.sh
 
-if [ "$host_platform" != "osx-64" ]; then
+if [[ ! $target_platform =~ osx ]]
   make check -j${CPU_COUNT}
 fi
 make install
