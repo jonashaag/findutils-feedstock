@@ -23,7 +23,7 @@ source:
     - findutils-4.6.0-leaf-opt.patch
 
 build:
-  number: 1000
+  number: 1001
   skip: true  # [win]
   script_env:
     - TMPDIR
