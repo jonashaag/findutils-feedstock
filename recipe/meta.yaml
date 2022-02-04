@@ -15,18 +15,15 @@ source:
   patches:
     - findutils-4.6.0-mbrtowc-tests.patch
     - findutils-4.6.0-gnulib-fflush.patch
-    - findutils-4.4.2-xautofs.patch
-    - findutils-4.5.13-warnings.patch
     - findutils-4.6.0-man-exec.patch
     - findutils-4.6.0-exec-args.patch
     - findutils-4.6.0-gnulib-makedev.patch
     - findutils-4.6.0-internal-noop.patch
     - findutils-4.6.0-test-lock.patch
-    - findutils-4.6.0-fts-update.patch
     - findutils-4.6.0-leaf-opt.patch
 
 build:
-  number: 1000
+  number: 1001
   skip: true  # [win]
   script_env:
     - TMPDIR
@@ -34,7 +31,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-  host:
+    - make
     - gettext
     - autoconf
     - automake
@@ -71,3 +68,4 @@ about:
 extra:
   recipe-maintainers:
     - karl616
+    - jonashaag
